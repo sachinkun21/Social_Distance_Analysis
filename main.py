@@ -16,7 +16,7 @@ score_thresh = 0.2
 
 def run_detections(web_cam, path_vid, im_height, im_width, score_thresh):
 
-    # try:
+    try:
         # Loading the Graph file
         print("----Loading the Model from path----")
         detection_graph, sess = load_inference_graph()
@@ -71,10 +71,10 @@ def run_detections(web_cam, path_vid, im_height, im_width, score_thresh):
                 cv2.destroyAllWindows()
                 break
 
-    # except Exception as e:
-    #     exc_type, exc_obj, exc_tb = sys.exc_info()
-    #     fname = os.path.split(exc_tb.tb_frame.f_code.co_filename)[1]
-    #     print(exc_type, "File Name: " , fname, "Line No: " , exc_tb.tb_lineno)
+    except Exception as e:
+        exc_type, exc_obj, exc_tb = sys.exc_info()
+        fname = os.path.split(exc_tb.tb_frame.f_code.co_filename)[1]
+        print(exc_type, "File Name: " , fname, "Line No: " , exc_tb.tb_lineno)
 
 
 

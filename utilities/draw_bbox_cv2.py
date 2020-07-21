@@ -16,14 +16,14 @@ def show_count_persons(image_np, count_p,im_height):
 
 def show_close_persons(image_np, close_p, im_height):
     cv2.putText(image_np, "Close Persons in Frame: {}".format(close_p), (10, im_height - 15), cv2.FONT_HERSHEY_SIMPLEX, 0.75,
-                (255, 100, 0), 2)
+                (255, 80, 0), 2)
 
 
 def plot_close_lines(p1, p2, image_np):
     p1 = int(p1[0]),int(p1[1])
     p2 = int(p2[0]), int(p2[1])
 
-    cv2.line(image_np, p1, p2, (255,255, 0), 3)
+    cv2.line(image_np, p1, p2, (255,255, 0), 2)
 
 
 def extract_box_and_plot(boxes, scores, classes, score_thresh, im_width, im_height, image_np):

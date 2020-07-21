@@ -18,7 +18,7 @@ def calculate_distance(image_np, bbox_cords):
 
         start_p1 = (int(left_1), int(top_1))
         end_p1 = (int(right_1), int(bottom_1))
-        draw_rectangle(image_np, start_p1, end_p1, (0, 255, 0), scores_1, 3)
+        draw_rectangle(image_np, start_p1, end_p1, (0, 230, 0), scores_1, 3)
 
         for j in range( len(bbox_cords)):
             if i != j:
@@ -53,11 +53,11 @@ def calculate_distance(image_np, bbox_cords):
 def calc_dist_and_plot_close(image_np, bbox_cords, im_height):
     # Stores centroids of Close Persons
     close_persons = calculate_distance(image_np, bbox_cords)
-    print(close_persons)
-    print(set(close_persons))
+    # print(close_persons)
+    # print(set(close_persons))
 
     # People close to each other
-    close_p = len(close_persons)
+    close_p = int(len(close_persons)//2)
 
     # to draw Count of close persons in Frame
     show_close_persons(image_np, close_p, im_height)
