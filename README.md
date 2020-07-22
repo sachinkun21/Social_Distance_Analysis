@@ -1,5 +1,7 @@
 # Social_Distance_Analysis
 
-To run this, create a virtual environment using conda and activate.
+1. To run this, create a virtual environment using conda or venv and activate.
+2. Install packages from requirements.txt using pip install -r requirements.txt
+3. Run the main.py file
 
 
