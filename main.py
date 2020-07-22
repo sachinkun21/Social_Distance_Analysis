@@ -10,11 +10,14 @@ from utilities import distance
 
 # Default params
 web_cam = False
-path_vid = 'test/video1.mp4'
+
+path_vid = 'test/football.mp4'
 im_height, im_width = (None, None)
 score_thresh = 0.2
+save_vid = True
 
-def run_detections(web_cam, path_vid, im_height, im_width, score_thresh):
+
+def run_detections(web_cam, path_vid, im_height, im_width, score_thresh, save_vid):
 
     try:
         # Loading the Graph file
@@ -24,8 +27,16 @@ def run_detections(web_cam, path_vid, im_height, im_width, score_thresh):
         if web_cam:
             vs = cv2.VideoCapture(0)
 
+
         else:
             vs = cv2.VideoCapture(path_vid)
+            frame_width = int(vs.get(3))
+            frame_height = int(vs.get(4))
+            size = (frame_width, frame_height)
+
+
+        if save_vid:
+            result = cv2.VideoWriter('filename.avi',cv2.VideoWriter_fourcc(*'MJPG'), 10, size)
 
         num_frames = 0
         start_time = datetime.now()
@@ -65,9 +76,10 @@ def run_detections(web_cam, path_vid, im_height, im_width, score_thresh):
             draw_bbox_cv2.draw_fps_on_image("FPS : " + str("{0:.2f}".format(fps)), frame)
 
             cv2.imshow('Detection', cv2.cvtColor(frame, cv2.COLOR_RGB2BGR))
+            if save_vid:
+                result.write(cv2.cvtColor(frame, cv2.COLOR_RGB2BGR))
 
-
-            if cv2.waitKey(25) & 0xFF==ord('q'):
+            if cv2.waitKey(25) & 0xFF == ord('q'):
                 cv2.destroyAllWindows()
                 break
 
@@ -77,6 +89,5 @@ def run_detections(web_cam, path_vid, im_height, im_width, score_thresh):
         print(exc_type, "File Name: " , fname, "Line No: " , exc_tb.tb_lineno)
 
 
-
 if __name__ == '__main__':
-    run_detections(web_cam,path_vid,im_height,im_width, score_thresh)
+    run_detections(web_cam,path_vid,im_height,im_width, score_thresh,save_vid)

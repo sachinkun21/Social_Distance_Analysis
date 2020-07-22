@@ -29,7 +29,7 @@ def calculate_distance(image_np, bbox_cords):
                 # Calculating pixel wise Distance between two persons
                 dist = (euclidean_distance(p1_centroid, p2_centroid))
 
-                if dist <= 100:
+                if dist <= 160:
                     close_persons.append((p1_centroid, p2_centroid))
                     start_p1 = (int(left_1), int(top_1))
                     end_p1 = (int(right_1), int(bottom_1))

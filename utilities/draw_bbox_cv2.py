@@ -11,12 +11,12 @@ def draw_rectangle(image_np, p1, p2, color_1,score,thickness):
 
 def show_count_persons(image_np, count_p,im_height):
     cv2.putText(image_np, "Total Persons in Frame: {}".format(count_p), (10, im_height - 40), cv2.FONT_HERSHEY_SIMPLEX, 0.75,
-                (0, 100, 255), 2)
+                (0, 255, 255), 2)
 
 
 def show_close_persons(image_np, close_p, im_height):
     cv2.putText(image_np, "Close Persons in Frame: {}".format(close_p), (10, im_height - 15), cv2.FONT_HERSHEY_SIMPLEX, 0.75,
-                (255, 80, 0), 2)
+                (0, 0, 255), 2)
 
 
 def plot_close_lines(p1, p2, image_np):
