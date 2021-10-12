@@ -1,5 +1,5 @@
 numpy==1.16.0
 object-detection-0.1
-opencv-python==4.1.0.25
+opencv-python==4.1.1.26
 protobuf==3.9.1
 tensorflow==1.15.2
